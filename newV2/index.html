@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Forge Studio</title>
+    <meta name="description" content="Create and manage interactive questionnaires" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  </head>
+
+  <body>
+    <!-- Корневой элемент для монтирования React -->
+    <div id="root"></div>
+    
+    <!-- Скрипт для отладки, который позволит проверить, что страница загружается -->
+    <script>
+      console.log('HTML загружен, ждем React...');
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM полностью загружен');
+      });
+    </script>
+    
+    <!-- Главный скрипт React-приложения -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
