@@ -1,219 +1,73 @@
-# Questionnaire App - Survey Management System
+# Welcome to your Lovable project
 
-## Project Description
+## Project info
 
-Questionnaire App is a web application for creating, managing, and conducting surveys. The system allows users to create various types of questionnaires, configure different question formats, publish questionnaires, and collect respondents' answers.
+**URL**: https://lovable.dev/projects/868b0991-09aa-4dfa-ba9f-287252a46034
 
-## Main Features
+## How can I edit this code?
 
-- **Creating and editing questionnaires**: interactive builder with the ability to add various question types
-- **Managing questionnaires**: publishing, archiving, and deleting questionnaires
-- **Completing questionnaires**: interactive interface for filling out questionnaires with support for various question types
-- **Analytics**: collecting and analyzing statistics on completed questionnaires
+There are several ways of editing your application.
 
-## Application Architecture
+**Use Lovable**
 
-The application is built as a Single Page Application (SPA) using a modern technology stack:
+Simply visit the [Lovable Project](https://lovable.dev/projects/868b0991-09aa-4dfa-ba9f-287252a46034) and start prompting.
 
-### Client Side (Frontend)
+Changes made via Lovable will be committed automatically to this repo.
 
-- **React**: library for building user interfaces
-- **React Router**: application routing
-- **Zustand**: application state management
-- **React Query**: managing asynchronous requests and data caching
-- **React Hook Form**: form management
-- **Zod**: data validation
-- **React Beautiful DnD**: implementing drag-and-drop functionality
-- **Tailwind CSS**: component styling
+**Use your preferred IDE**
 
-### Server Side (Backend)
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-- **Express**: web server and API
-- **Knex.js**: SQL query builder and database migrations
-- **SQLite**: database
-- **Winston**: logging
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-## Project Structure
+Follow these steps:
 
-```
-/
-├── dist/                  # Compiled files for production
-├── scripts/               # Scripts for migrations and database seeding
-├── src/                   # Application source code
-│   ├── components/        # React components
-│   │   ├── QuestionnaireBuilder/  # Components for creating questionnaires
-│   │   └── ...            # Other components
-│   ├── controllers/       # API controllers
-│   ├── db/                # Database settings
-│   │   ├── migrations/    # Database migrations
-│   │   └── seeds/         # Initial data
-│   ├── hooks/             # React hooks
-│   ├── lib/               # Helper libraries
-│   ├── middleware/        # Middleware for Express
-│   ├── pages/             # Application pages
-│   ├── repositories/      # Repositories for working with data
-│   ├── routes/            # API routes
-│   ├── services/          # Business logic services
-│   ├── store/             # State store (Zustand)
-│   ├── types/             # TypeScript types
-│   └── utils/             # Utilities
-├── .env                   # Environment variables
-├── database.sqlite        # SQLite database
-├── package.json           # Dependencies and scripts
-└── vite.config.ts         # Build configuration
-```
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-## Data Models
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-### Questionnaire
+# Step 3: Install the necessary dependencies.
+npm i
 
-```typescript
-interface Questionnaire {
-  id: string;              // Unique identifier
-  title: string;           // Questionnaire title
-  description: string;     // Questionnaire description
-  questions: Question[];   // Array of questions
-  createdAt: string;       // Creation date
-  updatedAt: string;       // Update date
-  status: 'draft' | 'published' | 'archived';  // Questionnaire status
-  timeLimit?: number;      // Time limit (in minutes)
-  completionCount: number; // Number of completions
-  averageTimeToComplete?: number; // Average completion time
-}
-```
-
-### Question
-
-```typescript
-interface Question {
-  id: string;              // Unique identifier
-  type: 'text' | 'single' | 'multiple' | 'image';  // Question type
-  title: string;           // Question text
-  description?: string;    // Question description
-  required: boolean;       // Required answer
-  options?: string[];      // Answer options (for single and multiple)
-  imageUrl?: string;       // Image URL (for image)
-  maxLength?: number;      // Maximum answer length (for text)
-  order: number;           // Question order number
-}
-```
-
-### QuestionnaireResponse
-
-```typescript
-interface QuestionnaireResponse {
-  id: string;              // Unique identifier
-  questionnaireId: string; // Questionnaire ID
-  userId: string;          // User ID
-  startedAt: string;       // Start time
-  completedAt?: string;    // Completion time
-  answers: Record<string, any>; // Answers to questions
-  timeSpent: number;       // Time spent (in seconds)
-}
-```
-
-## Main Components
-
-### QuestionnaireBuilder
-
-Component for creating and editing questionnaires. Allows:
-- Setting questionnaire title and description
-- Adding different types of questions
-- Configuring question parameters
-- Changing question order via drag-and-drop
-- Saving the questionnaire
-
-### QuestionnaireRunner
-
-Component for completing questionnaires. Functions:
-- Displaying questionnaire questions
-- Validating answers
-- Navigation between questions
-- Submitting results
-
-### QuestionnaireCatalog
-
-Component for displaying a list of available questionnaires with capabilities:
-- Filtering by status and searching by title
-- Sorting by various parameters
-- Navigating to edit or complete a questionnaire
-
-## Database
-
-The application uses SQLite as a database. Main tables:
-
-### questionnaires
-
-- `id` (UUID): primary key
-- `title` (string): questionnaire title
-- `description` (text): questionnaire description
-- `time_limit` (integer): time limit in minutes
-- `status` (enum): questionnaire status (draft, published, archived)
-- `questions_data` (jsonb): JSON with question data
-- `created_at` (timestamp): creation date
-- `updated_at` (timestamp): update date
-- `completion_count` (integer): number of completions
-
-## Installation and Running
-
-### Requirements
-
-- Node.js (version 18 or higher)
-- npm or yarn
-
-### Installing Dependencies
-
-```bash
-npm install
-# or
-yarn install
-```
-
-### Database Setup
-
-```bash
-# Running migrations
-npm run migrate
-# or
-yarn migrate
-
-# Filling with test data
-npm run seed
-# or
-yarn seed
-```
-
-### Running in Development Mode
-
-```bash
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
-# or
-yarn dev
 ```
 
-### Building for Production
+**Edit a file directly in GitHub**
 
-```bash
-npm run build
-# or
-yarn build
-```
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-## Technology Stack
+**Use GitHub Codespaces**
 
-- **Programming Languages**: TypeScript, JavaScript
-- **Frontend**: React, React Router, Zustand, React Query, Tailwind CSS
-- **Backend**: Express, Knex.js
-- **Database**: SQLite
-- **Build**: Vite
-- **Testing**: Vitest
-- **Validation**: Zod
-- **Logging**: Winston
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## Additional Features
+## What technologies are used for this project?
 
-- **Drag-and-drop**: dragging questions to change their order
-- **Time limit**: setting time limits for completing the questionnaire
-- **Analytics**: collecting statistics on completed questionnaires
-- **Validation**: checking the correctness of required fields
-- **Responsive design**: proper display on various devices
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/868b0991-09aa-4dfa-ba9f-287252a46034) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes it is!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
